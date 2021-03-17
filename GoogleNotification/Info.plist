@@ -4,9 +4,11 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<key>CFBundleDisplayName</key>
 	<string></string>
-	<key>NSLocationUsageDescription</key>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string></string>

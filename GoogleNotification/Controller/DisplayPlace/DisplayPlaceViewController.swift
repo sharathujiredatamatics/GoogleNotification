@@ -8,7 +8,8 @@
 
 import UIKit
 import CoreData
-class DisplayPlaceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// DisplayPlaceViewController to manage NotificationTableViewController and to fetch data from coredata.
+class DisplayPlaceViewController: UIViewController {
     let managerContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var nearByPlaceCoreData = [NSManagedObject]()
     @IBOutlet weak var placeTableViewCell: UITableView!
@@ -16,8 +17,6 @@ class DisplayPlaceViewController: UIViewController, UITableViewDelegate, UITable
     var placesData = [NSManagedObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         fetchPlaceData()
@@ -41,45 +40,19 @@ class DisplayPlaceViewController: UIViewController, UITableViewDelegate, UITable
                 let date = place.value(forKey: "date")
                 let newPlace = Place(name: name as! String, country: country as! String, locationDescription: location as! String, lat: lat as! Double, long: long as! Double, image: image as! Data, date: date as! String)
                 self.placeData.append(newPlace!)
-        
-        }
+                
+            }
         }catch {
             print("Caught an error: \(error)")
         }
         
     }
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return placeData.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlaceTableViewCell
-            cell.name.text = placeData[indexPath.row].name
-            cell.date.text = placeData[indexPath.row].date
-            cell.discription.text = placeData[indexPath.row].locationDescription
-            cell.country.text = placeData[indexPath.row].country
-            cell.placeImage.image = UIImage(data: placeData[indexPath.row].image)
-            return cell
-        }
+    @IBAction func homeWindow(_ sender: UIButton) {
+        let showOnMap = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        present(showOnMap, animated: true)
+    }
+    @IBAction func deleteAllNotification(_ sender: UIButton) {
+        deleteAllRecords()
+    }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            // Delete the row from the data source
-            managerContext.delete(placesData[indexPath.row])
-            do{
-                try managerContext.save()
-            }catch{
-                print("Error :")
-            }
-            // delete from arrays
-            placeData.remove(at: indexPath.row)
-            
-            // delete row from tableview
-            placeTableViewCell.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-        }
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection
-        section: Int) -> String? {
-        return ("Number of Records are : \(placeData.count)")
-    }
 }

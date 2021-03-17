@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 import CoreData
 struct Place {
     var name: String

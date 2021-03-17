@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B4015ED2602319100C3B960 /* PlaceSearchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4015EC2602319100C3B960 /* PlaceSearchControl.swift */; };
 		4BA3078525FF7696003A210E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA3078425FF7696003A210E /* AppDelegate.swift */; };
 		4BA3078725FF7696003A210E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA3078625FF7696003A210E /* MapViewController.swift */; };
 		4BA3078A25FF7696003A210E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA3078825FF7696003A210E /* Main.storyboard */; };
@@ -16,9 +17,11 @@
 		4BA3079D25FF7697003A210E /* GoogleNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA3079C25FF7697003A210E /* GoogleNotificationTests.swift */; };
 		4BA307A825FF7697003A210E /* GoogleNotificationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA307A725FF7697003A210E /* GoogleNotificationUITests.swift */; };
 		4BA307B725FF8403003A210E /* MapViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA307B625FF8403003A210E /* MapViewControllerExtension.swift */; };
-		4BA307BA25FF8691003A210E /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA307B925FF8691003A210E /* LocationSearchTable.swift */; };
 		4BA307BC25FF8807003A210E /* LocationSearchTableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA307BB25FF8807003A210E /* LocationSearchTableExtension.swift */; };
-		4BED53E626007A6D005F2E87 /* AddSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BED53E526007A6D005F2E87 /* AddSetViewController.swift */; };
+		4BEC39E22601DC2A001FC7DF /* DisplayPlaceViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC39E12601DC2A001FC7DF /* DisplayPlaceViewControllerExtension.swift */; };
+		4BEC39E52601DD3B001FC7DF /* SaveButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC39E42601DD3B001FC7DF /* SaveButtonExtension.swift */; };
+		4BEC39E92601DE64001FC7DF /* SaveNotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC39E82601DE64001FC7DF /* SaveNotificationExtension.swift */; };
+		4BEC39EB2601DFAD001FC7DF /* LocationAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEC39EA2601DFAD001FC7DF /* LocationAuthentication.swift */; };
 		4BED53E826007DF1005F2E87 /* StorageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BED53E726007DF1005F2E87 /* StorageClass.swift */; };
 		4BED53EB2600B093005F2E87 /* DisplayPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BED53EA2600B093005F2E87 /* DisplayPlaceViewController.swift */; };
 		4BED53ED2600B1E3005F2E87 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BED53EC2600B1E3005F2E87 /* PlaceTableViewCell.swift */; };
@@ -43,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B4015EC2602319100C3B960 /* PlaceSearchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchControl.swift; sourceTree = "<group>"; };
 		4BA3078125FF7696003A210E /* GoogleNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA3078425FF7696003A210E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BA3078625FF7696003A210E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -58,9 +62,11 @@
 		4BA307A725FF7697003A210E /* GoogleNotificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleNotificationUITests.swift; sourceTree = "<group>"; };
 		4BA307A925FF7697003A210E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA307B625FF8403003A210E /* MapViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerExtension.swift; sourceTree = "<group>"; };
-		4BA307B925FF8691003A210E /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		4BA307BB25FF8807003A210E /* LocationSearchTableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableExtension.swift; sourceTree = "<group>"; };
-		4BED53E526007A6D005F2E87 /* AddSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetViewController.swift; sourceTree = "<group>"; };
+		4BEC39E12601DC2A001FC7DF /* DisplayPlaceViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPlaceViewControllerExtension.swift; sourceTree = "<group>"; };
+		4BEC39E42601DD3B001FC7DF /* SaveButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonExtension.swift; sourceTree = "<group>"; };
+		4BEC39E82601DE64001FC7DF /* SaveNotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNotificationExtension.swift; sourceTree = "<group>"; };
+		4BEC39EA2601DFAD001FC7DF /* LocationAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthentication.swift; sourceTree = "<group>"; };
 		4BED53E726007DF1005F2E87 /* StorageClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageClass.swift; sourceTree = "<group>"; };
 		4BED53EA2600B093005F2E87 /* DisplayPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayPlaceViewController.swift; sourceTree = "<group>"; };
 		4BED53EC2600B1E3005F2E87 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,7 +121,6 @@
 		4BA3078325FF7696003A210E /* GoogleNotification */ = {
 			isa = PBXGroup;
 			children = (
-				4BED53F12600D8CE005F2E87 /* MyLocation.gpx */,
 				4BED53E2260079FB005F2E87 /* Model */,
 				4BED53E1260079F3005F2E87 /* View */,
 				4BED53E0260079E2005F2E87 /* Controller */,
@@ -150,7 +155,28 @@
 			isa = PBXGroup;
 			children = (
 				4BA307B625FF8403003A210E /* MapViewControllerExtension.swift */,
+				4B4015EC2602319100C3B960 /* PlaceSearchControl.swift */,
 				4BA307BB25FF8807003A210E /* LocationSearchTableExtension.swift */,
+				4BEC39EA2601DFAD001FC7DF /* LocationAuthentication.swift */,
+				4BEC39E42601DD3B001FC7DF /* SaveButtonExtension.swift */,
+				4BEC39E82601DE64001FC7DF /* SaveNotificationExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4BEC39DF2601D8FA001FC7DF /* NotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BA3078625FF7696003A210E /* MapViewController.swift */,
+				4BA307B525FF83D9003A210E /* Extension */,
+			);
+			path = NotificationViewController;
+			sourceTree = "<group>";
+		};
+		4BEC39E02601DBD3001FC7DF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4BEC39E12601DC2A001FC7DF /* DisplayPlaceViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -158,11 +184,8 @@
 		4BED53E0260079E2005F2E87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4BEC39DF2601D8FA001FC7DF /* NotificationViewController */,
 				4BED53E426007A45005F2E87 /* DisplayPlace */,
-				4BED53E326007A22005F2E87 /* AddSetNotification */,
-				4BA3078625FF7696003A210E /* MapViewController.swift */,
-				4BA307B925FF8691003A210E /* LocationSearchTable.swift */,
-				4BA307B525FF83D9003A210E /* Extension */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -179,16 +202,9 @@
 			isa = PBXGroup;
 			children = (
 				4BED53E726007DF1005F2E87 /* StorageClass.swift */,
+				4BED53F12600D8CE005F2E87 /* MyLocation.gpx */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		4BED53E326007A22005F2E87 /* AddSetNotification */ = {
-			isa = PBXGroup;
-			children = (
-				4BED53E526007A6D005F2E87 /* AddSetViewController.swift */,
-			);
-			path = AddSetNotification;
 			sourceTree = "<group>";
 		};
 		4BED53E426007A45005F2E87 /* DisplayPlace */ = {
@@ -196,6 +212,7 @@
 			children = (
 				4BED53EA2600B093005F2E87 /* DisplayPlaceViewController.swift */,
 				4BED53EC2600B1E3005F2E87 /* PlaceTableViewCell.swift */,
+				4BEC39E02601DBD3001FC7DF /* Extension */,
 			);
 			path = DisplayPlace;
 			sourceTree = "<group>";
@@ -334,13 +351,16 @@
 			files = (
 				4BED53E826007DF1005F2E87 /* StorageClass.swift in Sources */,
 				4BA3078725FF7696003A210E /* MapViewController.swift in Sources */,
-				4BA307BA25FF8691003A210E /* LocationSearchTable.swift in Sources */,
+				4BEC39E52601DD3B001FC7DF /* SaveButtonExtension.swift in Sources */,
 				4BA3078D25FF7696003A210E /* GoogleNotification.xcdatamodeld in Sources */,
 				4BA307BC25FF8807003A210E /* LocationSearchTableExtension.swift in Sources */,
 				4BA307B725FF8403003A210E /* MapViewControllerExtension.swift in Sources */,
+				4B4015ED2602319100C3B960 /* PlaceSearchControl.swift in Sources */,
+				4BEC39E92601DE64001FC7DF /* SaveNotificationExtension.swift in Sources */,
+				4BEC39E22601DC2A001FC7DF /* DisplayPlaceViewControllerExtension.swift in Sources */,
 				4BA3078525FF7696003A210E /* AppDelegate.swift in Sources */,
-				4BED53E626007A6D005F2E87 /* AddSetViewController.swift in Sources */,
 				4BED53EB2600B093005F2E87 /* DisplayPlaceViewController.swift in Sources */,
+				4BEC39EB2601DFAD001FC7DF /* LocationAuthentication.swift in Sources */,
 				4BED53ED2600B1E3005F2E87 /* PlaceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

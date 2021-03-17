@@ -9,24 +9,7 @@
 import Foundation
 import MapKit
 import CoreData
-extension MapViewController : CLLocationManagerDelegate, HandleMapSearch {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            locationManager.requestLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            mapView.setRegion(region, animated: true)
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error:: (error)")
-    }
+extension MapViewController : HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){
         // cache the pin
         selectedPin = placemark
@@ -61,12 +44,32 @@ extension MapViewController : CLLocationManagerDelegate, HandleMapSearch {
         StorageClass.shared.locationDescription = (selectedPin?.description)!
         StorageClass.shared.latitude = (selectedPin?.coordinate.latitude)!
         StorageClass.shared.longitude = (selectedPin?.coordinate.longitude)!
- 
+        
     }
     func alert(tittle:String, message:String) {
         let alert = UIAlertController(title: tittle, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    
+    func addSetButtonAction(){
+        if StorageClass.shared.name == ""{
+            alert(tittle: "Alert", message: "Already SetUp Notification or Empty Place Data")
+        }
+        else{
+            datePickerOutlet.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
+            let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+            alertController.view.addSubview(datePickerOutlet)
+            let selectAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                self.saveNotificationButton()
+            })
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(selectAction)
+            alertController.addAction(cancelAction)
+            present(alertController, animated: true)
+        }
+    }
+    func viewPlaceButtonAction(){
+        let displayPlaceViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DisplayPlaceViewController") as! DisplayPlaceViewController
+        present(displayPlaceViewController, animated: true)
+    }
 }
