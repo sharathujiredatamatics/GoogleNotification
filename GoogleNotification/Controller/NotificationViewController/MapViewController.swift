@@ -21,12 +21,14 @@ class MapViewController: UIViewController{
     var selectedPin: MKPlacemark? = nil
     var matchingItems : [MKMapItem] = []
     let datePickerOutlet: UIDatePicker = UIDatePicker()
-    let content = UNMutableNotificationContent()
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationmanager()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
+        UNUserNotificationCenter.current().delegate = self
+        StorageClass.shared.fetchPlaceData()
         self.searchPlace.delegate = self
         searchPlaceTableView.isHidden = true
-        UNUserNotificationCenter.current().delegate = self
         UIApplication.shared.applicationIconBadgeNumber = 0
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(loadMapView), name: NSNotification.Name(rawValue: "loadMapView"), object: nil)

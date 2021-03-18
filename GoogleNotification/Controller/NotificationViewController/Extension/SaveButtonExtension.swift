@@ -43,16 +43,12 @@ extension MapViewController{
             let myAlert = UIAlertController(title:"Alert", message:"Add And Set Notification Sucessfull", preferredStyle:.alert);
             let acceptAction = UIAlertAction(title: "OK", style: .default) { (_) -> Void in
                 
-                
-                
                 StorageClass.shared.name = ""
                 StorageClass.shared.country = ""
                 StorageClass.shared.locationDescription = ""
                 StorageClass.shared.latitude = 0
                 StorageClass.shared.longitude = 0
-                
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "activateSearchBar"), object: nil)
-                
+                StorageClass.shared.identifier = StorageClass.shared.identifier + 1
             }
             myAlert.addAction(acceptAction)
             present(myAlert, animated: true, completion: nil)

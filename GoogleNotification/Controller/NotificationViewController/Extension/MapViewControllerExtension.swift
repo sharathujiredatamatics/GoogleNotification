@@ -57,6 +57,7 @@ extension MapViewController : HandleMapSearch {
         else{
             datePickerOutlet.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
             let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+            datePickerOutlet.minimumDate = Date()
             alertController.view.addSubview(datePickerOutlet)
             let selectAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
                 self.saveNotificationButton()

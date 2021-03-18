@@ -44,6 +44,17 @@ class StorageClass{
     public var badgeCount = UIApplication.shared.applicationIconBadgeNumber
     var identifier = Int()
     var searchedPlace = [Place]()
+    var placesData = [NSManagedObject]()
     let managerContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    func fetchPlaceData(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
+        do {
+            let results = try managerContext.fetch(request)
+            placesData = results as! [NSManagedObject]
+            identifier = placesData.count
+        }catch {
+            print("Caught an error: \(error)")
+        }
+        
+    }
 }

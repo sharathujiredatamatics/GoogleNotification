@@ -16,22 +16,22 @@ extension MapViewController : UNUserNotificationCenterDelegate {
         dateComponent.day = day
         dateComponent.hour = hour
         dateComponent.minute = minute
-        
+        let identifier = "Identifier\(StorageClass.shared.identifier)"
+        let content = UNMutableNotificationContent()
         let open = UNNotificationAction(identifier: "open", title: "Show Location", options: UNNotificationActionOptions.foreground)
         let details = UNNotificationAction(identifier: "details", title: "Details", options: UNNotificationActionOptions.foreground)
-        let category = UNNotificationCategory(identifier: "Identifier\(StorageClass.shared.identifier)", actions: [open, details], intentIdentifiers: [], options: [])
+        
+        let category = UNNotificationCategory(identifier: identifier, actions: [open, details], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
         content.title = title
         content.subtitle = subTitle
         content.body = body
         StorageClass.shared.badgeCount = StorageClass.shared.badgeCount + 1
         content.badge = StorageClass.shared.badgeCount as NSNumber
-        content.categoryIdentifier = "Identifier\(StorageClass.shared.identifier)"
-        print("Identifier\(StorageClass.shared.identifier)")
-        StorageClass.shared.identifier = StorageClass.shared.identifier + 1
+        content.categoryIdentifier = identifier
         content.sound = UNNotificationSound.default
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-        let request = UNNotificationRequest(identifier: "Identifier\(StorageClass.shared.identifier)", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
@@ -39,7 +39,7 @@ extension MapViewController : UNUserNotificationCenterDelegate {
         if response.actionIdentifier == "open"
         {
             let showOnMap = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DisplayPlaceOnMapViewController") as! DisplayPlaceOnMapViewController
-            showOnMap.identifier = content.categoryIdentifier
+            showOnMap.identifier = response.notification.request.identifier
             present(showOnMap, animated: true)
             UIApplication.shared.applicationIconBadgeNumber -= 1
         }

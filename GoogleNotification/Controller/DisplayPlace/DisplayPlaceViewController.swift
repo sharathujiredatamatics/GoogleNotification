@@ -11,7 +11,6 @@ import CoreData
 // DisplayPlaceViewController to manage NotificationTableViewController and to fetch data from coredata.
 class DisplayPlaceViewController: UIViewController {
     let managerContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var nearByPlaceCoreData = [NSManagedObject]()
     @IBOutlet weak var placeTableViewCell: UITableView!
     var placeDataSet = [Place]()
     var placeData = [Place]()
