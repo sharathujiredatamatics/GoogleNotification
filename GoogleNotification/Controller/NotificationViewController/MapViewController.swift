@@ -21,21 +21,23 @@ class MapViewController: UIViewController{
     var selectedPin: MKPlacemark? = nil
     var matchingItems : [MKMapItem] = []
     let datePickerOutlet: UIDatePicker = UIDatePicker()
-    let managerContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let content = UNMutableNotificationContent()
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationmanager()
         self.searchPlace.delegate = self
         searchPlaceTableView.isHidden = true
         UNUserNotificationCenter.current().delegate = self
         UIApplication.shared.applicationIconBadgeNumber = 0
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadMapView), name: NSNotification.Name(rawValue: "loadMapView"), object: nil)
     }
     
     @objc func willEnterForeground() {
         UIApplication.shared.applicationIconBadgeNumber = 0
         StorageClass.shared.badgeCount = 0
+    }
+    @objc func loadMapView(notification: NSNotification){
+        
     }
     @IBAction func addSetNotification(_ sender: UIButton) {
         addSetButtonAction()
@@ -43,14 +45,4 @@ class MapViewController: UIViewController{
     @IBAction func viewPlace(_ sender: UIButton) {
         viewPlaceButtonAction()
     }
-    
-    /*func setRegionFromNotification(){
-     let location = CLLocationCoordinate2DMake(pin.lat, pin.long)
-     let region = MKCoordinateRegionMake(location, span)
-     mapView.setRegion(region, animated: true)
-     annotation.coordinate = location
-     annotation.title = pin.name
-     annotation.subtitle = "It is \(String(describing: pin.openNow)) now"
-     }*/
 }
-

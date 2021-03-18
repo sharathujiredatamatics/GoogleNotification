@@ -17,7 +17,6 @@ extension MapViewController : HandleMapSearch {
         mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
-        print(placemark.coordinate)
         annotation.title = placemark.name
         if let city = placemark.locality,
             let state = placemark.administrativeArea {

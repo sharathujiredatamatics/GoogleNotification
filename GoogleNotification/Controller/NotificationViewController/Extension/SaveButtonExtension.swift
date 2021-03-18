@@ -19,13 +19,11 @@ extension MapViewController{
         entity.longitude = StorageClass.shared.longitude
         entity.image = StorageClass.shared.image
         entity.date = StorageClass.shared.date
+        entity.identifier = "Identifier\(StorageClass.shared.identifier)"
+        entity.date = datePickerOutlet.date
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let datestring = dateFormatter.string(from: datePickerOutlet.date)
-        //        let selectedDate = dateFormatter.date(from : datestring)
-        //
-        entity.date = datestring
         dateFormatter.dateFormat = "yyyy"
         let year: String = dateFormatter.string(from: self.datePickerOutlet.date)
         dateFormatter.dateFormat = "MM"

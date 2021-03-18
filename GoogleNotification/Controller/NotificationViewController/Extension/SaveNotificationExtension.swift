@@ -28,6 +28,7 @@ extension MapViewController : UNUserNotificationCenterDelegate {
         content.badge = StorageClass.shared.badgeCount as NSNumber
         content.categoryIdentifier = "Identifier\(StorageClass.shared.identifier)"
         print("Identifier\(StorageClass.shared.identifier)")
+        StorageClass.shared.identifier = StorageClass.shared.identifier + 1
         content.sound = UNNotificationSound.default
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
         let request = UNNotificationRequest(identifier: "Identifier\(StorageClass.shared.identifier)", content: content, trigger: trigger)
@@ -37,7 +38,8 @@ extension MapViewController : UNUserNotificationCenterDelegate {
     {
         if response.actionIdentifier == "open"
         {
-            let showOnMap = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            let showOnMap = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DisplayPlaceOnMapViewController") as! DisplayPlaceOnMapViewController
+            showOnMap.identifier = content.categoryIdentifier
             present(showOnMap, animated: true)
             UIApplication.shared.applicationIconBadgeNumber -= 1
         }

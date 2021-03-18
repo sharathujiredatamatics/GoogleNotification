@@ -16,7 +16,12 @@ extension DisplayPlaceViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlaceTableViewCell
         cell.name.text = placeData[indexPath.row].name
-        cell.date.text = placeData[indexPath.row].date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let datestring = dateFormatter.string(from: placeData[indexPath.row].date)
+        cell.date.text = datestring
+        
         cell.discription.text = placeData[indexPath.row].locationDescription
         cell.country.text = placeData[indexPath.row].country
         cell.placeImage.image = UIImage(data: placeData[indexPath.row].image)
@@ -37,6 +42,13 @@ extension DisplayPlaceViewController: UITableViewDelegate, UITableViewDataSource
             // delete row from tableview
             placeTableViewCell.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let showOnMap = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DisplayPlaceOnMapViewController") as! DisplayPlaceOnMapViewController
+        present(showOnMap, animated: true)
+        let identity = placeData[indexPath.row].identifier
+        showOnMap.identifier = identity
+        show(showOnMap, sender: nil)
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection
         section: Int) -> String? {

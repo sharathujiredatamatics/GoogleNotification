@@ -16,8 +16,9 @@ struct Place {
     var lat : Double
     var long : Double
     var image : Data
-    var date : String
-    init?( name: String, country: String, locationDescription: String, lat: Double ,long: Double, image : Data, date : String) {
+    var date : Date
+    var identifier : String
+    init?( name: String, country: String, locationDescription: String, lat: Double ,long: Double, image : Data, date : Date, identifier : String) {
         self.name = name
         self.country = country
         self.locationDescription = locationDescription
@@ -25,6 +26,7 @@ struct Place {
         self.long = long
         self.image = image
         self.date = date
+        self.identifier = identifier
     }
 }
 
@@ -38,7 +40,7 @@ class StorageClass{
     var latitude = Double()
     var longitude = Double()
     var image = Data()
-    var date = String()
+    var date = Date()
     public var badgeCount = UIApplication.shared.applicationIconBadgeNumber
     var identifier = Int()
     var searchedPlace = [Place]()

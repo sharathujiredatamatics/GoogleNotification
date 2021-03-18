@@ -13,6 +13,7 @@ class DisplayPlaceViewController: UIViewController {
     let managerContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var nearByPlaceCoreData = [NSManagedObject]()
     @IBOutlet weak var placeTableViewCell: UITableView!
+    var placeDataSet = [Place]()
     var placeData = [Place]()
     var placesData = [NSManagedObject]()
     override func viewDidLoad() {
@@ -38,10 +39,11 @@ class DisplayPlaceViewController: UIViewController {
                 let long = place.value(forKey: "longitude")
                 let image = place.value(forKey: "image")
                 let date = place.value(forKey: "date")
-                let newPlace = Place(name: name as! String, country: country as! String, locationDescription: location as! String, lat: lat as! Double, long: long as! Double, image: image as! Data, date: date as! String)
-                self.placeData.append(newPlace!)
-                
+                let identity = place.value(forKey : "identifier")
+                let newPlace = Place(name: name as! String, country: country as! String, locationDescription: location as! String, lat: lat as! Double, long: long as! Double, image: image as! Data, date: date as! Date, identifier: identity as! String )
+                self.placeDataSet.append(newPlace!)
             }
+            placeData = placeDataSet.sorted(by: { $0.date > $1.date})
         }catch {
             print("Caught an error: \(error)")
         }
